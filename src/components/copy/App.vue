@@ -1,35 +1,38 @@
 <template>
   <div class="container mx-auto">
-    <h1 class="font-bold text-3xl text-center mb-3">My Bank App</h1>
-    <div class="grid grid-cols-3 border">
-      <Card title="Income" :data="income()"/>
-      <Card title="Expenses" :data="expenses()"/>
-      <Card title="Balance" :data="balance()"/>
-    </div> 
-    <div>
-      <Transactions :transactions="transactions" @deleteTransaction="deleteTransaction" />
-    </div>
-    <div>
-      <addItem  @addItem="newItem"/>
-    </div>
-  </div>
+<h1 class="font-bold text-3xl text-center mb-3">My Bank App</h1>
+<div class="grid grid-cols-3 border">
+  <div>Income: {{income()}}</div>
+  <div>Expenses:  {{expenses()}}</div>
+  <div>Balance:  {{balance()}}</div>
+</div>
+<Transactions :transactions="transactions" @deleteTransaction="deleteTransaction" />
+</div>
 </template>
 
 <script>
 import Transactions from "./components/Transactions.vue";
-import addItem from "./components/addItem.vue";
-import Card from "./components/Card.vue";
-
 export default {
 name: "App",
 components: {
   Transactions,
-  addItem,
-  Card
   },
 data () {
 	return {
-		transactions: [],
+		transactions: [
+      {id: 1,
+        name: "Salario",
+        amount: 500
+      },
+      {id: 2,
+        name: "Supermercado",
+        amount: -15
+      },
+      {id: 3,
+        name: "Ropa",
+        amount: -50
+      },
+    ]
 	}
 },
 methods: {
@@ -49,11 +52,7 @@ methods: {
     },
     deleteTransaction(id) {
       this.transactions = this.transactions.filter((tran) => tran.id !== id.id);
-    },
-    newItem(item){
-      this.transactions.push(item);
     }
-
   },
 }
 </script>
