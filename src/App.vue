@@ -7,7 +7,7 @@
       <Box title="Ingresos" :data="sumPositives" />
       <Box title="Gastos" :data="expenses" />
       <Box title="Balance" :data="balance" />
-    </div>
+    </div>  
 
 <!-- form -->
     <div class="row">
