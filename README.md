@@ -38,7 +38,7 @@ Vue Calculator is a web-based calculator application built with Vue.js and Tailw
 1. Start the development server:
 
    ```bash
-   npm run dev
+   npm run 
    ```
 
 2. Open your browser and visit `http://localhost:5173` to see the application in action.
